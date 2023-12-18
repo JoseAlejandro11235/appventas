@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-from . models import Record
+from . models import Record, Area
 
 from django import forms
 
@@ -57,6 +57,27 @@ class UpdateRecordForm(forms.ModelForm):
             'province': 'Provincia',
             'country': 'País',
         }
+
+
+
+# - Create an area
+
+class CreateAreaForm(forms.ModelForm):
+    class Meta:
+
+        model = Area
+        fields = ['denominacion']
+
+
+# - Update an area
+
+class UpdateAreaForm(forms.ModelForm):
+    class Meta: 
+
+        model = Area
+        fields = ['denominacion']
+
+
 
 
 

@@ -12,7 +12,18 @@ urlpatterns = [
     path('user-logout', views.user_logout, name="user-logout"),
 
 
-    #CRUD
+    #CRUD AREAS
+
+    path('dashboard-area', views.dashboard_area, name="dashboard-area"),
+    path('create-area', views.create_area, name="create-area"),
+    path('update-area/<int:pk>', views.update_area, name='update-area'),
+    path('area/<int:pk>', views.singular_area, name="area"),
+    path('delete-area/<int:pk>', views.delete_area, name="delete-area"),
+
+
+
+
+    #CRUD RECORDS
 
     path('dashboard', views.dashboard, name="dashboard"),
 
