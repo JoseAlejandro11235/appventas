@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import CreateUserForm, LoginForm, CreateRecordForm, UpdateRecordForm
+from .forms import LoginForm, CreateRecordForm, UpdateRecordForm
 
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
@@ -19,28 +19,6 @@ def home(request):
     return render(request, 'webapp/index.html')
 
 
-#Register a user
-
-
-def register(request):
-
-    form = CreateUserForm()
-
-    if request.method == "POST":
-
-        form = CreateUserForm(request.POST)
-
-        if form.is_valid():
-
-            form.save()
-
-            messages.success(request, "Account created succesfully")
-
-            return redirect("my-login")
-
-    context = {'form':form}
-
-    return render(request, 'webapp/register.html', context=context)
 
 # - Login a user
 
