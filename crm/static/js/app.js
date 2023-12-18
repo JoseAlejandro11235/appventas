@@ -1,6 +1,6 @@
 
 // Message/Notification timer
-
+//Comentario de prueba js 
 var message_timeout = document.getElementById("message-timer");
 
 setTimeout(function()
