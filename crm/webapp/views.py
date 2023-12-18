@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect
-from .forms import LoginForm, CreateRecordForm, UpdateRecordForm
+from .forms import LoginForm, CreateRecordForm, UpdateRecordForm, CreateAreaForm, UpdateAreaForm
 
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
 
 from django.contrib.auth.decorators import login_required
 
-from .models import Record
+from .models import Record, Area
 
 from django.contrib import messages
 
@@ -131,6 +131,89 @@ def delete_record(request, pk):
     messages.success(request, "Your record was deleted!")
 
     return redirect("dashboard")
+
+# - Dashboard area
+
+@login_required(login_url='my-login')
+def dashboard_area(request):
+
+    my_areas = Area.objects.all()
+
+    context = {'areas': my_areas}
+
+    return render(request,'webapp/dashboard-area.html', context=context)
+
+# - Create an area
+
+@login_required(login_url='my-login')
+def create_area(request):
+
+    form = CreateAreaForm()
+
+    if request.method == "POST":
+        form = CreateAreaForm(request.POST)
+
+        if form.is_valid():
+
+            form.save()
+
+            messages.success(request, "Your area was created!")
+
+            return redirect("dashboard-area")
+        
+    context = {'form': form}
+
+    return render(request, 'webapp/create-area.html', context=context)
+
+# - Update an area
+@login_required(login_url='my-login')
+def update_area(request, pk):
+
+    area = Area.objects.get(id=pk)
+
+    form = UpdateAreaForm(instance=area)
+
+    if request.method == 'POST':
+
+        form = UpdateAreaForm(request.POST, instance=area)
+
+        if form.is_valid():
+
+            form.save()
+
+            messages.success(request, "Your area was updated!")
+
+            return redirect("dashboard-area")
+        
+    context = {'form': form}
+
+    return render(request, 'webapp/update-area.html',context=context)
+
+
+
+# - Read / View a singular area
+
+@login_required(login_url='my-login')
+def singular_area(request, pk):
+
+    all_areas = Area.objects.get(id=pk)
+
+    context = {'area':all_areas}
+
+    return render(request, 'webapp/view-area.html', context=context)
+
+
+# - Delete an area
+
+@login_required(login_url='my-login')
+def delete_area(request, pk):
+    area = Area.objects.get(id=pk)
+
+    area.delete()
+
+    messages.success(request, "Your area was deleted!")
+
+    return redirect("dashboard-area")
 
 
 # - User logout
