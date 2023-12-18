@@ -17,8 +17,8 @@ from django.forms.widgets import PasswordInput, TextInput
         
 class LoginForm(AuthenticationForm):
 
-    username = forms.CharField(widget=TextInput())
-    password = forms.CharField(widget=PasswordInput())
+    username = forms.CharField(label='Usuario', widget=TextInput())
+    password = forms.CharField(label='Contraseña', widget=PasswordInput())
 
 
 # - Create a record
@@ -28,6 +28,16 @@ class CreateRecordForm(forms.ModelForm):
 
         model = Record
         fields = ['first_name','last_name','email','phone', 'address', 'city', 'province', 'country']
+        labels = {
+            'first_name': 'Nombre',
+            'last_name': 'Apellido',
+            'email': 'Correo Electrónico',
+            'phone': 'Teléfono',
+            'address': 'Dirección',
+            'city': 'Ciudad',
+            'province': 'Provincia',
+            'country': 'País',
+        }
 
 
 # - Update a record
@@ -37,6 +47,16 @@ class UpdateRecordForm(forms.ModelForm):
 
         model = Record
         fields = ['first_name','last_name','email','phone', 'address', 'city', 'province', 'country']
+        labels = {
+            'first_name': 'Nombre',
+            'last_name': 'Apellido',
+            'email': 'Correo Electrónico',
+            'phone': 'Teléfono',
+            'address': 'Dirección',
+            'city': 'Ciudad',
+            'province': 'Provincia',
+            'country': 'País',
+        }
 
 
 
