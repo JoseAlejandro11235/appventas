@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
-from .forms import LoginForm,CreateRecordForm, UpdateRecordForm, CreateAreaForm, UpdateAreaForm, CreateCategoriaForm, UpdateCategoriaForm, CreateCategoriaPadreForm, UpdateCategoriaPadreForm, CreateMarcaForm, UpdateMarcaForm, CreateUnidadMedidaForm, UpdateUnidadMedidaForm, CreateProductoForm, UpdateProductoForm, CreateProductoCategoriaForm, UpdateProductoCategoriaForm, CreateProductoPrecioForm, UpdateProductoPrecioForm, CreateTipoDocumentoForm, UpdateTipoDocumentoForm, CreatePersonaForm, UpdatePersonaForm
+from .forms import LoginForm,CreateRecordForm, UpdateRecordForm, CreateAreaForm, UpdateAreaForm, CreateCategoriaForm, UpdateCategoriaForm, CreateCategoriaPadreForm, UpdateCategoriaPadreForm, CreateMarcaForm, UpdateMarcaForm, CreateUnidadMedidaForm, UpdateUnidadMedidaForm, CreateProductoForm, UpdateProductoForm, CreateProductoCategoriaForm, UpdateProductoCategoriaForm, CreateProductoPrecioForm, UpdateProductoPrecioForm, CreateTipoDocumentoForm, UpdateTipoDocumentoForm, CreatePersonaForm, UpdatePersonaForm, CreateOperadorForm, UpdateOperadorForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
 
 from django.contrib.auth.decorators import login_required
 
-from .models import Record, Area, Categoria, CategoriaPadre, Marca, UnidadMedida, Producto, ProductoCategoria, ProductoPrecio, TipoDocumento, Persona
+from .models import Record, Area, Categoria, CategoriaPadre, Marca, UnidadMedida, Producto, ProductoCategoria, ProductoPrecio, TipoDocumento, Persona, Operador
 
 from django.contrib import messages
 
@@ -921,6 +921,77 @@ def delete_persona(request, pk):
     messages.success(request, "Your Persona was deleted!")
     return redirect("dashboard-persona")  
 
+
+
+# - Dashboard operador
+@login_required(login_url='my-login')
+def dashboard_operador(request):
+
+    operadores = Operador.objects.all()
+
+    context = {'operadores': operadores}
+
+    return render(request, 'webapp/dashboard-operador.html', context=context)
+
+
+# - Create an operador
+@login_required(login_url='my-login')
+def create_operador(request):
+
+    form = CreateOperadorForm()
+
+    if request.method == "POST":
+        form = CreateOperadorForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your Operador was created!")
+            return redirect("dashboard-operador")
+        
+    context = {'form': form}
+
+    return render(request, 'webapp/create-operador.html', context=context)
+
+
+# - Update an operador
+@login_required(login_url='my-login')
+def update_operador(request, pk):
+
+    operador = Operador.objects.get(id=pk)
+
+    form = UpdateOperadorForm(instance=operador)
+
+    if request.method == 'POST':
+        form = UpdateOperadorForm(request.POST, instance=operador)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your operador was updated!")
+            return redirect("dashboard-operador")
+        
+    context = {'form': form}
+
+    return render(request, 'webapp/update-operador.html', context=context)
+
+# - Read / View a singular operador
+
+@login_required(login_url='my-login')
+def singular_operador(request, pk):
+
+    operador = Operador.objects.get(id=pk)
+
+    context = {'operador': operador}
+
+    return render(request, 'webapp/view-operador.html', context=context)
+
+# - Delete an operador
+
+@login_required(login_url='my-login')
+def delete_operador(request, pk):
+    operador = Operador.objects.get(id=pk)
+    operador.delete()
+    messages.success(request, "Your Operador was deleted!")
+    return redirect("dashboard-operador")
 
 
 

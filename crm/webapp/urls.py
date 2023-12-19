@@ -90,6 +90,15 @@ urlpatterns = [
     path('persona/<int:pk>', views.singular_persona, name="persona"),
     path('delete-persona/<int:pk>', views.delete_persona, name="delete-persona"),
 
+   # CRUD OPERADOR
+
+    path('dashboard-operador', views.dashboard_operador, name="dashboard-operador"),
+    path('create-operador', views.create_operador, name="create-operador"),
+    path('update-operador/<int:pk>', views.update_operador, name='update-operador'),
+    path('operador/<int:pk>', views.singular_operador, name="operador"),
+    path('delete-operador/<int:pk>', views.delete_operador, name="delete-operador"),
+
+
 
 
     

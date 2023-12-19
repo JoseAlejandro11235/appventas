@@ -103,6 +103,14 @@ class Persona(models.Model):
 
     def str(self):
         return self.documento
+    
+class Operador(models.Model):
+    denominacion=models.CharField(max_length=100)
+    def str(self):
+        return self.denominacion
+
+
+
 
 
 
