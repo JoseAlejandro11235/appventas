@@ -1,0 +1,67 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-tipodocumento page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-tipodocumento' %}">
+
+        Create a new tipo documento &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+    <table class="table table table-hover table-bordered">
+        
+        <thead class="table-light">
+
+
+            <tr>
+
+                <th scope="col"> ID </th>
+                <th scope="col"> Denominación </th>
+                <th scope="col"> Código Sunat </th>
+
+                <th scope="col"> View </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+
+        {% if tiposdocumentos %}
+
+            {% for tipodocumento in tiposdocumentos %}
+            
+            <tr>
+
+
+                <td> {{tipodocumento.id}} </td>
+
+                <td> {{tipodocumento.denominacion}}</td>
+
+                <td> {{tipodocumento.codigo_sunat}}</td>
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'tipodocumento' tipodocumento.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

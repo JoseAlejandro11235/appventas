@@ -1,0 +1,67 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard producto categoria page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-productocategoria' %}">
+
+        Create a new producto categoria &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+    <table class="table table table-hover table-bordered">
+        
+        <thead class="table-light">
+
+
+            <tr>
+
+               
+                <th scope="col"> ID PRODUCTO</th>
+                <th scope="col"> ID CATEGORIA</th>
+
+                <th scope="col"> View </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+
+        {% if productoscategorias %}
+
+            {% for productocategoria in productoscategorias %}
+            
+            <tr>
+
+
+                <td> {{productocategoria.id}} </td>
+
+                <td> {{productocategoria.id_producto}}</td>
+
+                <td> {{productocategoria.id_categoria}}</td>
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'productocategoria' productocategoria.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

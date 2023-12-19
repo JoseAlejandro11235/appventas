@@ -1,0 +1,67 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-categoria page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-categoria' %}">
+
+        Create a new categoria &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+    <table class="table table table-hover table-bordered">
+        
+        <thead class="table-light">
+
+
+            <tr>
+
+                <th scope="col"> ID </th>
+                <th scope="col"> Denominación</th>
+                <th scope="col"> Descripcion</th>
+
+                <th scope="col"> View </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+
+        {% if categorias %}
+
+            {% for categoria in categorias %}
+            
+            <tr>
+
+
+                <td> {{categoria.id}} </td>
+
+                <td> {{categoria.denominacion}}</td>
+
+                <td> {{categoria.descripcion}}</td>
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'categoria' categoria.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

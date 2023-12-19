@@ -1,0 +1,58 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <body>
+
+        <div class="container bg-light shadow-md p-5 form-layout">
+
+            <h3> Update producto precio </h3>
+            
+            <h6> Update your producto precio down below.. </h6>
+
+            <hr>
+            <br>
+
+            <form method="POST" autocomplete="off">
+
+                {% csrf_token %}
+
+                {{form.precio|as_crispy_field}}
+
+                <br>
+
+                {{form.fechavigencia|as_crispy_field}}
+
+                <br>    
+
+                {{form.estado|as_crispy_field}}
+               
+                <br>    
+
+                {{form.id_producto|as_crispy_field}}
+               
+
+                <br>    
+
+                <button type="submit" class="btn btn-info"> Update producto precio <i class="fa fa-plus" aria-hidden="true"></i> </button>
+
+                &nbsp;
+
+                <a href="{%url 'dashboard-productoprecio' %}" class="btn btn-secondary">
+
+                    Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i>
+
+                </a>
+
+
+            </form>
+        
+        </div>
+
+        <br>
+
+    </body>
+
+{% endblock %}

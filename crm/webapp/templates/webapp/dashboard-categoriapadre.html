@@ -1,0 +1,65 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-categoria-padre page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-categoriapadre' %}">
+
+        Create a new categoria padre &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+    <table class="table table table-hover table-bordered">
+        
+        <thead class="table-light">
+
+
+            <tr>
+
+        
+                <th scope="col"> Categoria Hijo </th>
+                <th scope="col"> Categoria Padre </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+
+        {% if categoriaspadres %}
+
+            {% for categoriapadre in categoriaspadres %}
+            
+            <tr>
+
+
+       
+
+                <td> {{categoriapadre.id_categoriahijo}}</td>
+
+                <td> {{categoriapadre.id_categoriapadre}}</td>
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'categoriapadre' categoriapadre.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

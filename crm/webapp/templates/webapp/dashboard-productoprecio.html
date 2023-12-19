@@ -1,0 +1,72 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-productoprecio page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-productoprecio' %}">
+
+        Create a new producto precio &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+    <table class="table table table-hover table-bordered">
+        
+        <thead class="table-light">
+
+
+            <tr>
+
+                <th scope="col"> ID </th>
+                <th scope="col"> Precio </th> 
+                <th scope="col"> Fecha Vigencia </th>
+                <th scope="col"> Estado </th>
+                <th scope="col"> ID PRODUCTO </th>
+                <th scope="col"> View </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+
+        {% if productosprecios %}
+
+            {% for productoprecio in productosprecios %}
+            
+            <tr>
+
+
+                <td> {{productoprecio.id}} </td>
+
+                <td> {{productoprecio.precio}}</td>
+
+                <td> {{productoprecio.fechavigencia}}</td>
+
+                <td> {{productoprecio.estado}}</td>
+
+                <td> {{productoprecio.id_producto}}</td>
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'productoprecio' productoprecio.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}
