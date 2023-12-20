@@ -81,6 +81,14 @@ urlpatterns = [
     path('delete-productoprecio/<int:pk>', views.delete_productoprecio, name="delete-productoprecio"),
 
 
+    #CRUD TIPO DOCUMENTO
+
+    path('dashboard-tipodocumento', views.dashboard_tipodocumento, name="dashboard-tipodocumento"),
+    path('create-tipodocumento', views.create_tipodocumento, name="create-tipodocumento"),
+    path('update-tipodocumento/<int:pk>', views.update_tipodocumento, name='update-tipodocumento'),
+    path('tipodocumento/<int:pk>', views.singular_tipodocumento, name="tipodocumento"),
+    path('delete-tipodocumento/<int:pk>', views.delete_tipodocumento, name="delete-tipodocumento"),
+
 
    # CRUD PERSONA
 
@@ -89,6 +97,9 @@ urlpatterns = [
     path('update-persona/<int:pk>', views.update_persona, name='update-persona'),
     path('persona/<int:pk>', views.singular_persona, name="persona"),
     path('delete-persona/<int:pk>', views.delete_persona, name="delete-persona"),
+
+
+
 
    # CRUD OPERADOR
 
