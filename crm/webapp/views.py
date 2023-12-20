@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
-from .forms import LoginForm,CreateRecordForm, UpdateRecordForm, CreateAreaForm, UpdateAreaForm, CreateCategoriaForm, UpdateCategoriaForm, CreateCategoriaPadreForm, UpdateCategoriaPadreForm, CreateMarcaForm, UpdateMarcaForm, CreateUnidadMedidaForm, UpdateUnidadMedidaForm, CreateProductoForm, UpdateProductoForm, CreateProductoCategoriaForm, UpdateProductoCategoriaForm, CreateProductoPrecioForm, UpdateProductoPrecioForm, CreateTipoDocumentoForm, UpdateTipoDocumentoForm, CreatePersonaForm, UpdatePersonaForm, CreateOperadorForm, UpdateOperadorForm
+from .forms import LoginForm,CreateRecordForm, UpdateRecordForm, CreateAreaForm, UpdateAreaForm, CreateCategoriaForm, UpdateCategoriaForm, CreateCategoriaPadreForm, UpdateCategoriaPadreForm, CreateMarcaForm, UpdateMarcaForm, CreateUnidadMedidaForm, UpdateUnidadMedidaForm, CreateProductoForm, UpdateProductoForm, CreateProductoCategoriaForm, UpdateProductoCategoriaForm, CreateProductoPrecioForm, UpdateProductoPrecioForm, CreateTipoDocumentoForm, UpdateTipoDocumentoForm, CreatePersonaForm, UpdatePersonaForm, CreateOperadorForm, UpdateOperadorForm, CreateTipoTelefonoForm, UpdateTipoTelefonoForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
 
 from django.contrib.auth.decorators import login_required
 
-from .models import Record, Area, Categoria, CategoriaPadre, Marca, UnidadMedida, Producto, ProductoCategoria, ProductoPrecio, TipoDocumento, Persona, Operador
+from .models import Record, Area, Categoria, CategoriaPadre, Marca, UnidadMedida, Producto, ProductoCategoria, ProductoPrecio, TipoDocumento, Persona, Operador, TipoTelefono
 
 from django.contrib import messages
 
@@ -992,6 +992,78 @@ def delete_operador(request, pk):
     operador.delete()
     messages.success(request, "Your Operador was deleted!")
     return redirect("dashboard-operador")
+
+
+
+# - Dashboard tipotelefono
+@login_required(login_url='my-login')
+def dashboard_tipotelefono(request):
+
+    tipostelefonos = TipoTelefono.objects.all()
+
+    context = {'tipostelefonos': tipostelefonos}
+
+    return render(request, 'webapp/dashboard-tipotelefono.html', context=context)
+
+
+# - Create a tipotelefono
+@login_required(login_url='my-login')
+def create_tipotelefono(request):
+
+    form = CreateTipoTelefonoForm()
+
+    if request.method == "POST":
+        form = CreateTipoTelefonoForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your TipoTelefono was created!")
+            return redirect("dashboard-tipotelefono")
+        
+    context = {'form': form}
+
+    return render(request, 'webapp/create-tipotelefono.html', context=context)
+
+
+# - Update a tipotelefono
+@login_required(login_url='my-login')
+def update_tipotelefono(request, pk):
+
+    tipotelefono = TipoTelefono.objects.get(id=pk)
+
+    form = UpdateTipoTelefonoForm(instance=tipotelefono)
+
+    if request.method == 'POST':
+        form = UpdateTipoTelefonoForm(request.POST, instance=tipotelefono)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Your tipo telefono was updated!")
+            return redirect("dashboard-tipotelefono")
+        
+    context = {'form': form}
+
+    return render(request, 'webapp/update-tipotelefono.html', context=context)
+
+# - Read / View a singular tipotelefono
+
+@login_required(login_url='my-login')
+def singular_tipotelefono(request, pk):
+
+    tipotelefono = TipoTelefono.objects.get(id=pk)
+
+    context = {'tipotelefono': tipotelefono}
+
+    return render(request, 'webapp/view-tipotelefono.html', context=context)
+
+# - Delete a tipotelefono
+
+@login_required(login_url='my-login')
+def delete_tipotelefono(request, pk):
+    tipotelefono = TipoTelefono.objects.get(id=pk)
+    tipotelefono.delete()
+    messages.success(request, "Your Tipo Telefono was deleted!")
+    return redirect("dashboard-tipotelefono")
 
 
 

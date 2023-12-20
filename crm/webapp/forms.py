@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-from . models import Record, Area, Categoria, CategoriaPadre, Marca, UnidadMedida, Producto, ProductoCategoria, ProductoPrecio, TipoDocumento, Persona, Operador
+from . models import Record, Area, Categoria, CategoriaPadre, Marca, UnidadMedida, Producto, ProductoCategoria, ProductoPrecio, TipoDocumento, Persona, Operador, TipoTelefono
 
 from django import forms
 
@@ -237,7 +237,7 @@ class CreatePersonaForm(forms.ModelForm):
         fields = ['id_tipodocumento', 'documento']
 
 
-# - Update an Operador
+# - Update an Persona
 
 class UpdatePersonaForm(forms.ModelForm):
     class Meta: 
@@ -261,6 +261,24 @@ class UpdateOperadorForm(forms.ModelForm):
     class Meta: 
 
         model = Operador
+        fields = ['denominacion']
+
+
+# - Create a Tipo Teléfono
+
+class CreateTipoTelefonoForm(forms.ModelForm):
+    class Meta:
+
+        model = TipoTelefono
+        fields = ['denominacion']
+
+
+# - Update a Tipo Teléfono
+
+class UpdateTipoTelefonoForm(forms.ModelForm):
+    class Meta: 
+
+        model = TipoTelefono
         fields = ['denominacion']
 
 

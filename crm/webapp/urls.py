@@ -111,6 +111,16 @@ urlpatterns = [
 
 
 
+    # CRUD TIPO TELEFONO
+    
+    path('dashboard-tipotelefono', views.dashboard_tipotelefono, name="dashboard-tipotelefono"),
+    path('create-tipotelefono', views.create_tipotelefono, name="create-tipotelefono"),
+    path('update-tipotelefono/<int:pk>', views.update_tipotelefono, name='update-tipotelefono'),
+    path('tipotelefono/<int:pk>', views.singular_tipotelefono, name="tipotelefono"),
+    path('delete-tipotelefono/<int:pk>', views.delete_tipotelefono, name="delete-tipotelefono"),
+
+
+
 
     
 

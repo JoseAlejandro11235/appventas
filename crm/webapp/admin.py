@@ -18,7 +18,7 @@ admin.site.register(ProductoPrecio)
 admin.site.register(TipoDocumento)
 admin.site.register(Persona)
 admin.site.register(Operador)
-admin.site.register(TipoTelefono)
+admin.site.register(TipoTelefono) #
 admin.site.register(Telefono)
 admin.site.register(PersonaTelefono)
 admin.site.register(Ubigeo)
