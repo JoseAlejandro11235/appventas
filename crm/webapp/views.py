@@ -1890,8 +1890,8 @@ def create_personanatural(request):
 # - Update a PersonaNatural
 @login_required(login_url='my-login')
 def update_personanatural(request, pk):
-
-    personanatural = PersonaNatural.objects.get(id=pk)
+    persona = Persona.objects.get(documento=pk)
+    personanatural = PersonaNatural.objects.get(id_persona=persona)
 
     form = UpdatePersonaNaturalForm(instance=personanatural)
 
@@ -1911,8 +1911,8 @@ def update_personanatural(request, pk):
 
 @login_required(login_url='my-login')
 def singular_personanatural(request, pk):
-
-    personanatural = PersonaNatural.objects.get(id=pk)
+    persona = Persona.objects.get(documento=pk)
+    personanatural = PersonaNatural.objects.get(id_persona=persona)
 
     context = {'personanatural': personanatural}
 
@@ -1922,7 +1922,8 @@ def singular_personanatural(request, pk):
 
 @login_required(login_url='my-login')
 def delete_personanatural(request, pk):
-    personanatural = PersonaNatural.objects.get(id=pk)
+    persona = Persona.objects.get(documento=pk)
+    personanatural = PersonaNatural.objects.get(id_persona=persona)
     personanatural.delete()
     messages.success(request, "Your PersonaNatural was deleted!")
     return redirect("dashboard-personanatural")

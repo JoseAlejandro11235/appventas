@@ -21,10 +21,14 @@
 
                 <tr>
 
-                    <th scope="col"> ID </th>
-                    <th scope="col"> ID DIRECCIÓN </th>
+                
                     <th scope="col"> ID PERSONA </th>
-                    <th scope="col"> ID TIPO DIRECCIÓN </th>
+                    <th scope="col"> Nombres </th>
+                    <th scope="col"> Ap paterno </th>
+                    <th scope="col"> Ap materno </th>
+                    <th scope="col"> fecha_nacimiento </th>
+                    <th scope="col"> id_sexo </th>
+                    <th scope="col"> id_nacionalidad </th>
                     
 
                     <th scope="col"> View </th>
@@ -42,7 +46,7 @@
                 
             <tr>
 
-                <td> {{personanatural.id}} </td>
+        
 
                 <td> {{personanatural.id_persona}} </td>
 
@@ -56,7 +60,7 @@
 
                 
                 
-                <td> <a class="btn btn-success btn-sm" href="{% url 'personanatural' personanatural.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+                <td> <a class="btn btn-success btn-sm" href="{% url 'personanatural' personanatural.id_persona %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
 
 
 
