@@ -1,0 +1,52 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <body>
+
+        <div class="container bg-light shadow-md p-5 form-layout">
+
+            <h3> Create sucursalserie </h3>
+            
+            <h6> Start adding in the required details for your sucursalserie. </h6>
+
+            <hr>
+            <br>
+
+            <form method="POST" autocomplete="off">
+
+                {% csrf_token %}
+
+                {{form.serie|as_crispy_field}}
+                {{form.id_sucursal|as_crispy_field}}
+                {{form.id_tipocomprobante|as_crispy_field}}
+
+                <br>
+
+               
+
+
+                <button type="submit" class="btn btn-primary"> 
+                    Create sucursalserie &nbsp; <i class="fa fa-check" aria-hidden="true"></i>
+                </button>
+
+                &nbsp;
+
+                <a href="{%url 'dashboard-sucursalserie' %}" class="btn btn-secondary">
+
+                    Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i>
+
+                </a>
+
+
+            </form>
+        
+        </div>
+
+        <br>
+
+    </body>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-personaoficio page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-personaoficio' %}">
+
+        Create a new personaoficio &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+        <table class="table table table-hover table-bordered">
+            
+            <thead class="table-light">
+
+
+                <tr>
+
+                    <th scope="col"> ID </th>
+                    <th scope="col"> ID DIRECCIÓN </th>
+                    <th scope="col"> ID PERSONA </th>
+                    <th scope="col"> ID TIPO DIRECCIÓN </th>
+                    
+
+                    <th scope="col"> View </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+
+            {% if personasoficios %}
+
+                {% for personaoficio in personasoficios %}
+                
+            <tr>
+
+                <td> {{personaoficio.id}} </td>
+
+                <td> {{personaoficio.id_oficio}} </td>
+
+                <td> {{personaoficio.id_persona}}</td>
+                
+
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'personaoficio' personaoficio.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

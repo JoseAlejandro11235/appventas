@@ -1,0 +1,72 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-telefono page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-telefono' %}">
+
+        Create a new  telefono &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+    <table class="table table table-hover table-bordered">
+        
+        <thead class="table-light">
+
+
+            <tr>
+
+                <th scope="col"> ID </th>
+                <th scope="col"> Numero </th>
+     
+
+                <th scope="col"> Id Operador </th>
+                <th scope="col"> Id Tipo Telefono </th>
+
+                <th scope="col"> View </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+
+        {% if telefonos %}
+
+            {% for telefono in telefonos %}
+            
+            <tr>
+
+
+                <td> {{telefono.id}} </td>
+
+                <td> {{telefono.numero}}</td>
+                <td> {{telefono.id_operador}}</td>
+                <td> {{telefono.id_tipotelefono}}</td>
+
+  
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'telefono' telefono.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

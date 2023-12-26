@@ -1,0 +1,47 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <div class="card">
+
+        <div class="card-body">
+
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+
+            <strong>
+
+                {{telefono.id|upper}}
+                <br>
+    
+                               
+    
+            </strong>
+    
+            <hr>
+
+            {{telefono.numero}}
+            <br>
+            {{telefono.id_operador}}
+            <br>
+            {{telefono.id_tipotelefono}}
+
+            <br>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <a href="{%url 'dashboard-telefono' %}" class="btn btn-secondary"> Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i> </a>
+
+    &nbsp;
+
+    <a href="{%url 'update-telefono' telefono.id %}" class="btn btn-info"> Update telefono &nbsp; <i class="fa fa-pencil" aria-hidden="true"></i> </a>
+
+    &nbsp;
+     
+    <a href="{%url 'delete-telefono' telefono.id %}" class="btn btn-danger"> Delete &nbsp; <i class="fa fa-trash" aria-hidden="true"></i> </a>
+
+
+{% endblock %}

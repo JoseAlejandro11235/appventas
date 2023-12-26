@@ -1,0 +1,74 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-ubigeo page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-ubigeo' %}">
+
+        Create a new ubigeo &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+    <table class="table table table-hover table-bordered">
+        
+        <thead class="table-light">
+
+
+            <tr>
+
+                <th scope="col"> ID </th>
+                <th scope="col"> Ubigeo </th>
+                <th scope="col"> Departamento </th>
+                <th scope="col"> Provincia </th>
+                <th scope="col"> Distrito </th>
+
+     
+
+                <th scope="col"> View </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+
+        {% if ubigeos %}
+
+            {% for ubigeo in ubigeos %}
+            
+            <tr>
+
+
+                <td> {{ubigeo.id}} </td>
+
+                <td> {{ubigeo.ubigeo}}</td>
+
+                <td> {{ubigeo.departamento}}</td>
+                <td> {{ubigeo.provincia}}</td>
+                <td> {{ubigeo.distrito}}</td>
+  
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'ubigeo' ubigeo.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

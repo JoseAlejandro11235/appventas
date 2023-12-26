@@ -1,0 +1,69 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-tipocomprobante page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-tipocomprobante' %}">
+
+        Create a new tipocomprobante &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+        <table class="table table table-hover table-bordered">
+            
+            <thead class="table-light">
+
+
+                <tr>
+
+                    <th scope="col"> ID </th>
+                    <th scope="col"> Código Sunat  </th>
+                    <th scope="col"> Denominación  </th>
+                    
+
+                    <th scope="col"> View </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+
+            {% if tiposclientes %}
+
+                {% for tipocomprobante in tiposclientes %}
+                
+            <tr>
+
+                <td> {{tipocomprobante.id}} </td>
+
+                <td> {{tipocomprobante.codigo_sunat}} </td>
+                <td> {{tipocomprobante.denominacion}} </td>
+
+                
+
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'tipocomprobante' tipocomprobante.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

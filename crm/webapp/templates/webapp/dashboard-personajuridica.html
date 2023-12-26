@@ -1,0 +1,72 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-personajuridica page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-personajuridica' %}">
+
+        Create a new personajuridica &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+        <table class="table table table-hover table-bordered">
+            
+            <thead class="table-light">
+
+
+                <tr>
+
+                    <th scope="col"> ID </th>
+                    <th scope="col"> ID DIRECCIÓN </th>
+                    <th scope="col"> ID PERSONA </th>
+                    <th scope="col"> ID TIPO DIRECCIÓN </th>
+                    
+
+                    <th scope="col"> View </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+
+            {% if personasjuridicas %}
+
+                {% for personajuridica in personasjuridicas %}
+                
+            <tr>
+
+                <td> {{personajuridica.id}} </td>
+
+                <td> {{personajuridica.id_persona}} </td>
+
+                <td> {{personajuridica.razon_social}}</td>
+                <td> {{personajuridica.nombre_comercial}}</td>
+                <td> {{personajuridica.sitio_web}}</td>
+                
+
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'personajuridica' personajuridica.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

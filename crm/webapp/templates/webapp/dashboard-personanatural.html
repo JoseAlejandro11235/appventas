@@ -1,0 +1,75 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-personanatural page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-personanatural' %}">
+
+        Create a new personanatural &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+        <table class="table table table-hover table-bordered">
+            
+            <thead class="table-light">
+
+
+                <tr>
+
+                    <th scope="col"> ID </th>
+                    <th scope="col"> ID DIRECCIÓN </th>
+                    <th scope="col"> ID PERSONA </th>
+                    <th scope="col"> ID TIPO DIRECCIÓN </th>
+                    
+
+                    <th scope="col"> View </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+
+            {% if personasnaturales %}
+
+                {% for personanatural in personasnaturales %}
+                
+            <tr>
+
+                <td> {{personanatural.id}} </td>
+
+                <td> {{personanatural.id_persona}} </td>
+
+                <td> {{personanatural.nombres}}</td>
+                <td> {{personanatural.apaterno}}</td>
+                <td> {{personanatural.amaterno}}</td>
+                <td> {{personanatural.fecha_nacimiento}}</td>
+                <td> {{personanatural.id_sexo}}</td>
+                <td> {{personanatural.id_nacionalidad}}</td>
+                
+
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'personanatural' personanatural.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

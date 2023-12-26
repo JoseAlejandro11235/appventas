@@ -1,0 +1,52 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <body>
+
+        <div class="container bg-light shadow-md p-5 form-layout">
+
+            <h3> Create nacionalidad </h3>
+            
+            <h6> Start adding in the required details for your nacionalidad. </h6>
+
+            <hr>
+            <br>
+
+            <form method="POST" autocomplete="off">
+
+                {% csrf_token %}
+
+                {{form.codigo_sunat|as_crispy_field}}
+                {{form.denominacion|as_crispy_field}}
+               
+
+                <br>
+
+               
+
+
+                <button type="submit" class="btn btn-primary"> 
+                    Create nacionalidad &nbsp; <i class="fa fa-check" aria-hidden="true"></i>
+                </button>
+
+                &nbsp;
+
+                <a href="{%url 'dashboard-nacionalidad' %}" class="btn btn-secondary">
+
+                    Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i>
+
+                </a>
+
+
+            </form>
+        
+        </div>
+
+        <br>
+
+    </body>
+
+{% endblock %}

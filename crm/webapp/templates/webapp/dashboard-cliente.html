@@ -1,0 +1,66 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-cliente page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-cliente' %}">
+
+        Create a new cliente &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+    <table class="table table table-hover table-bordered">
+        
+        <thead class="table-light">
+
+
+            <tr>
+
+                <th scope="col"> ID </th>
+                <th scope="col"> ID PERSONA</th>
+                <th scope="col"> ID TIPO CLIENTE</th>
+                <th scope="col"> View </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+
+        {% if clientes %}
+
+            {% for cliente in clientes %}
+            
+            <tr>
+
+
+                <td> {{cliente.id}} </td>
+
+                <td> {{cliente.id_persona}}</td>
+                <td> {{cliente.id_tipocliente}}</td>
+
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'cliente' cliente.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

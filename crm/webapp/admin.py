@@ -2,8 +2,10 @@ from django.contrib import admin
 
 # Register your models here.
 
-from . models import Record, Area, Categoria, CategoriaPadre, Marca, UnidadMedida, Producto, ProductoCategoria, ProductoPrecio,TipoDocumento, Persona, Operador, TipoTelefono, Telefono, PersonaTelefono, Ubigeo, TipoVia, TipoZona, Direccion, TipoDireccion, PersonaDireccion, PersonaJuridica, Sexo, Nacionalidad, PersonaNatural, Sucursal, Cargo, Rol, Empleado, TipoCliente, Cliente, Proveedor, Venta, DetalleVenta, TipoComprobante, SucursalSerie, ComprobanteVenta, Compra, DetalleCompra, Oficio, PersonaOficio
 
+from . models import Record, Area, Categoria, CategoriaPadre, Marca
+
+from . models import Record, Area, Categoria, CategoriaPadre, Marca, UnidadMedida, Producto, ProductoCategoria, ProductoPrecio,TipoDocumento, Persona, Operador, TipoTelefono, Telefono, PersonaTelefono, Ubigeo, TipoVia, TipoZona, Direccion, TipoDireccion, PersonaDireccion, PersonaJuridica, Sexo, Nacionalidad, PersonaNatural, Sucursal, Cargo, Rol, Empleado, TipoCliente, Cliente, Proveedor, Venta, DetalleVenta, TipoComprobante, SucursalSerie, ComprobanteVenta, Compra, DetalleCompra, Oficio, PersonaOficio
 
 
 admin.site.register(Record)
@@ -18,8 +20,8 @@ admin.site.register(ProductoPrecio)
 admin.site.register(TipoDocumento)
 admin.site.register(Persona)
 admin.site.register(Operador)
-admin.site.register(TipoTelefono) #
-admin.site.register(Telefono)
+admin.site.register(TipoTelefono) 
+admin.site.register(Telefono) #
 admin.site.register(PersonaTelefono)
 admin.site.register(Ubigeo)
 admin.site.register(TipoVia)

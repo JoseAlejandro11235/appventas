@@ -1,0 +1,70 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-comprobanteventa page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-comprobanteventa' %}">
+
+        Create a new comprobanteventa &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+    <table class="table table table-hover table-bordered">
+        
+        <thead class="table-light">
+
+
+            <tr>
+
+                <th scope="col"> ID </th>
+                <th scope="col"> ID VENTA </th>
+                <th scope="col"> Serie </th>
+                <th scope="col"> Correlativo </th>
+
+                <th scope="col"> View </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+
+        {% if comprobantesventas %}
+
+            {% for comprobanteventa in comprobantesventas %}
+            
+            <tr>
+
+                <td> {{comprobanteventa.id}} </td>
+
+                <td> {{comprobanteventa.id_venta}} </td>
+
+                <td> {{comprobanteventa.serie}}</td>
+                <td> {{comprobanteventa.correlativo}}</td>
+                
+
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'comprobanteventa' comprobanteventa.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

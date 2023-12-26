@@ -1,0 +1,67 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-tipocliente page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-tipocliente' %}">
+
+        Create a new tipocliente &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+        <table class="table table table-hover table-bordered">
+            
+            <thead class="table-light">
+
+
+                <tr>
+
+                    <th scope="col"> ID </th>
+                    <th scope="col"> Denominación  </th>
+                    
+
+                    <th scope="col"> View </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+
+            {% if tiposclientes %}
+
+                {% for tipocliente in tiposclientes %}
+                
+            <tr>
+
+                <td> {{tipocliente.id}} </td>
+
+                <td> {{tipocliente.denominacion}} </td>
+
+                
+
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'tipocliente' tipocliente.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <body>
+
+        <div class="container bg-light shadow-md p-5 form-layout">
+
+            <h3> Update personajuridica </h3>
+            
+            <h6> Update your personajuridica down below.. </h6>
+
+            <hr>
+            <br>
+
+            <form method="POST" autocomplete="off">
+                
+                {% csrf_token %}
+
+                {{form.id_persona|as_crispy_field}}
+                {{form.razon_social|as_crispy_field}}
+                {{form.nombre_comercial|as_crispy_field}}
+                {{form.sitio_web|as_crispy_field}}
+               
+
+    
+                <br>
+
+                <button type="submit" class="btn btn-info"> Update personajuridica <i class="fa fa-plus" aria-hidden="true"></i> </button>
+
+                &nbsp;
+
+                <a href="{%url 'dashboard-personajuridica' %}" class="btn btn-secondary">
+
+                    Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i>
+
+                </a>
+
+
+            </form>
+        
+        </div>
+
+        <br>
+
+    </body>
+
+{% endblock %}

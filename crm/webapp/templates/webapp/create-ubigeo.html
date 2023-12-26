@@ -1,0 +1,56 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <body>
+
+        <div class="container bg-light shadow-md p-5 form-layout">
+
+            <h3> Create ubigeo </h3>
+            
+            <h6> Start adding in the required details for your ubigeo. </h6>
+
+            <hr>
+            <br>
+
+            <form method="POST" autocomplete="off">
+
+                {% csrf_token %}
+
+                {{form.ubigeo|as_crispy_field}}
+                <br>
+                {{form.departamento|as_crispy_field}}
+                <br>
+                {{form.provincia|as_crispy_field}}
+                <br>
+                {{form.distrito|as_crispy_field}}
+
+                <br>
+
+               
+
+
+                <button type="submit" class="btn btn-primary"> 
+                    Create ubigeo &nbsp; <i class="fa fa-check" aria-hidden="true"></i>
+                </button>
+
+                &nbsp;
+
+                <a href="{%url 'dashboard-ubigeo' %}" class="btn btn-secondary">
+
+                    Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i>
+
+                </a>
+
+
+            </form>
+        
+        </div>
+
+        <br>
+
+    </body>
+
+{% endblock %}

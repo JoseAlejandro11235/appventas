@@ -40,12 +40,21 @@ class Categoria(models.Model):
     descripcion = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.denominacion 
+
+        return self.denominacion
+
+
     
     
 class CategoriaPadre(models.Model):
     id_categoriahijo = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name='categoria_padre_hijo', db_column='id_categoriahijo', to_field='id')
     id_categoriapadre = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name='categoria_padre_padre', db_column='id_categoriapadre', to_field='id')
+
+
+class Marca(models.Model):
+    denominacion = models.CharField(max_length=100)
+    descripcion = models.CharField(max_length=100)
+
     def __str__(self):
         return str(self.pk)
 
@@ -338,5 +347,3 @@ class PersonaOficio(models.Model):
         return str(self.pk)
 
     
-
-

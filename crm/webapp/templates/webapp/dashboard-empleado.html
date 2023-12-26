@@ -1,0 +1,73 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-empleado page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-empleado' %}">
+
+        Create a new empleado &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+        <table class="table table table-hover table-bordered">
+            
+            <thead class="table-light">
+
+
+                <tr>
+
+                    <th scope="col"> ID </th>
+                    <th scope="col"> ID PERSONA </th>
+                    <th scope="col"> ID CARGO </th>
+                    <th scope="col"> ID ROL </th>
+                    <th scope="col"> ID SUCURSAL </th>
+                    
+
+                    <th scope="col"> View </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+
+            {% if empleados %}
+
+                {% for empleado in empleados %}
+                
+            <tr>
+
+                <td> {{empleado.id}} </td>
+
+                <td> {{empleado.id_persona}} </td>
+
+                <td> {{empleado.id_cargo}}</td>
+                <td> {{empleado.id_rol}}</td>
+                <td> {{empleado.id_sucursal}}</td>
+                
+
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'empleado' empleado.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

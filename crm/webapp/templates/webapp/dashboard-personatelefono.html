@@ -1,0 +1,69 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-personatelefono page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-personatelefono' %}">
+
+        Create a new persona telefono &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+    <table class="table table table-hover table-bordered">
+        
+        <thead class="table-light">
+
+
+            <tr>
+
+                <th scope="col"> ID </th>
+                <th scope="col"> ID PERSONA </th>
+                <th scope="col"> ID TELÉFONO </th>
+
+     
+
+                <th scope="col"> View </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+
+        {% if personastelefonos %}
+
+            {% for personatelefono in personastelefonos %}
+            
+            <tr>
+
+
+                <td> {{personatelefono.id_persona}} </td>
+
+                <td> {{personatelefono.id_telefono}}</td>
+
+  
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'personatelefono' personatelefono.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

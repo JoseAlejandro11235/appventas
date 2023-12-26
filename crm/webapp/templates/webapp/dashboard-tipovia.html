@@ -1,0 +1,69 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-tipovia page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-tipovia' %}">
+
+        Create a new tipovia &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+    <table class="table table table-hover table-bordered">
+        
+        <thead class="table-light">
+
+
+            <tr>
+
+                <th scope="col"> ID </th>
+                <th scope="col"> Codigo_sunat </th>
+                <th scope="col"> Denominación </th>
+
+                <th scope="col"> View </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+
+        {% if tiposvias %}
+
+            {% for tipovia in tipovias %}
+            
+            <tr>
+
+
+                <td> {{tipovia.id}} </td>
+
+                <td> {{tipovia.codigo_sunat}}</td>
+
+                <td> {{tipovia.denominacion}}</td>
+
+  
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'tipovia' tipovia.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-direccion page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-direccion' %}">
+
+        Create a new direccion &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+    <table class="table table table-hover table-bordered">
+        
+        <thead class="table-light">
+
+
+            <tr>
+
+                <th scope="col"> ID </th>
+                <th scope="col"> ID TIPO ZONA </th>
+                <th scope="col"> ID TIPO VIA </th>
+                <th scope="col"> ID UBIGEO </th>
+                <th scope="col"> Nombre Zona </th>
+                <th scope="col"> Nombre Via </th>
+                <th scope="col"> Manzana </th>
+                <th scope="col"> Lote </th>
+                <th scope="col"> Numero </th>
+
+     
+
+                <th scope="col"> View </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+
+        {% if direcciones %}
+
+            {% for direccion in direcciones %}
+            
+            <tr>
+
+
+                <td> {{direccion.id}} </td>
+
+                <td> {{direccion.id_tipozona}}</td>
+                <td> {{direccion.id_tipovia}}</td>
+                <td> {{direccion.id_ubigeo}}</td>
+                <td> {{direccion.nombre_zona}}</td>
+                <td> {{direccion.nombre_via}}</td>
+                <td> {{direccion.manzana}}</td>
+                <td> {{direccion.lote}}</td>
+                <td> {{direccion.numero}}</td>
+
+  
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'direccion' direccion.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-proveedor page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-proveedor' %}">
+
+        Create a new producto precio &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+    <table class="table table table-hover table-bordered">
+        
+        <thead class="table-light">
+
+
+            <tr>
+
+                <th scope="col"> ID </th>
+                <th scope="col"> ID PERSONA </th> 
+               
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+
+        {% if productosprecios %}
+
+            {% for proveedor in productosprecios %}
+            
+            <tr>
+
+
+                <td> {{proveedor.id}} </td>
+
+                <td> {{proveedor.id_persona}}</td>
+
+                
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'proveedor' proveedor.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

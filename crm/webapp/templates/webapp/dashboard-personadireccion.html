@@ -1,0 +1,71 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-personadireccion page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-personadireccion' %}">
+
+        Create a new personadireccion &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+        <table class="table table table-hover table-bordered">
+            
+            <thead class="table-light">
+
+
+                <tr>
+
+                    <th scope="col"> ID </th>
+                    <th scope="col"> ID DIRECCIÓN </th>
+                    <th scope="col"> ID PERSONA </th>
+                    <th scope="col"> ID TIPO DIRECCIÓN </th>
+                    
+
+                    <th scope="col"> View </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+
+            {% if personasdirecciones %}
+
+                {% for personadireccion in personasdirecciones %}
+                
+            <tr>
+
+                <td> {{personadireccion.id}} </td>
+
+                <td> {{personadireccion.id_direccion}} </td>
+
+                <td> {{personadireccion.id_persona}}</td>
+                <td> {{personadireccion.id_tipodireccion}}</td>
+                
+
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'personadireccion' personadireccion.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

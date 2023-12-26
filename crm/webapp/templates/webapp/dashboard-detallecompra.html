@@ -1,0 +1,74 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-detallecompra page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-detallecompra' %}">
+
+        Create a new detallecompra &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+        <table class="table table table-hover table-bordered">
+            
+            <thead class="table-light">
+
+
+                <tr>
+
+                    <th scope="col"> ID </th>
+                    <th scope="col"> ID COMPRA </th>
+                    <th scope="col"> ID PRODUCTO </th>
+                    <th scope="col"> Cantidad </th>
+                    <th scope="col"> Precio unitario </th>
+                    <th scope="col"> Subtotal </th>
+
+                    <th scope="col"> View </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+
+            {% if detallescompras %}
+
+                {% for detallecompra in detallescompras %}
+                
+            <tr>
+
+                <td> {{detallecompra.id}} </td>
+
+                <td> {{detallecompra.id_compra}} </td>
+
+                <td> {{detallecompra.id_producto}}</td>
+                <td> {{detallecompra.cantidad}}</td>
+                <td> {{detallecompra.precio_unitario}}</td>
+                <td> {{detallecompra.subtotal}}</td>
+                
+
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'detallecompra' detallecompra.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'webapp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <body>
+
+        <div class="container bg-light shadow-md p-5 form-layout">
+
+            <h3> Create venta </h3>
+            
+            <h6> Start adding in the required details for your venta. </h6>
+
+            <hr>
+            <br>
+
+            <form method="POST" autocomplete="off">
+
+                {% csrf_token %}
+
+                {{form.subtotal|as_crispy_field}}
+                {{form.igv|as_crispy_field}}
+                {{form.total|as_crispy_field}}
+                {{form.id_vendedor|as_crispy_field}}
+                {{form.id_cajero|as_crispy_field}}
+                {{form.id_cliente|as_crispy_field}}
+
+                <br>
+
+               
+
+
+                <button type="submit" class="btn btn-primary"> 
+                    Create venta &nbsp; <i class="fa fa-check" aria-hidden="true"></i>
+                </button>
+
+                &nbsp;
+
+                <a href="{%url 'dashboard-venta' %}" class="btn btn-secondary">
+
+                    Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i>
+
+                </a>
+
+
+            </form>
+        
+        </div>
+
+        <br>
+
+    </body>
+
+{% endblock %}

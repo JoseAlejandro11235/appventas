@@ -1,0 +1,70 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-sucursalserie page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-sucursalserie' %}">
+
+        Create a new sucursalserie &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+        <table class="table table table-hover table-bordered">
+            
+            <thead class="table-light">
+
+
+                <tr>
+
+                    <th scope="col"> ID </th>
+                    <th scope="col"> ID DIRECCION  </th>
+                    <th scope="col"> Descripcion </th>
+                    
+
+                    <th scope="col"> View </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+
+            {% if sucursalesseries %}
+
+                {% for sucursalserie in sucursalesseries %}
+                
+            <tr>
+
+                <td> {{sucursalserie.id}} </td>
+
+                <td> {{sucursalserie.serie}} </td>
+                <td> {{sucursalserie.id_sucursal}} </td>
+                <td> {{sucursalserie.id_tipocomprobante}} </td>
+
+                
+
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'sucursalserie' sucursalserie.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

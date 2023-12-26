@@ -1,0 +1,75 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-venta page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-venta' %}">
+
+        Create a new venta &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+        <table class="table table table-hover table-bordered">
+            
+            <thead class="table-light">
+
+
+                <tr>
+
+                    <th scope="col"> ID </th>
+                    <th scope="col"> Fecha  </th>
+                    <th scope="col"> Subtotal  </th>
+                    <th scope="col"> IGV  </th>
+                    <th scope="col"> Total  </th>
+                    <th scope="col"> ID VENDEDOR  </th>
+                    <th scope="col"> ID CAJERO  </th>
+                    <th scope="col"> ID CLIENTE  </th>
+
+                    <th scope="col"> View </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+
+            {% if ventas %}
+
+                {% for venta in ventas %}
+                
+            <tr>
+
+                <td> {{venta.id}} </td>
+
+                <td> {{venta.fecha}} </td>
+                <td> {{venta.subtotal}} </td>
+                <td> {{venta.igv}} </td>
+                <td> {{venta.total}} </td>
+                
+                
+
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'venta' venta.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

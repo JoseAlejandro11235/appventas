@@ -1,0 +1,46 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <div class="card">
+
+        <div class="card-body">
+
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+
+            <strong>
+
+                {{venta.id|upper}}
+                <br>
+    
+                               
+    
+            </strong>
+    
+            <hr>
+
+            {{venta.codigo_sunat}}
+            <br>
+            {{venta.fecha}}
+            {{venta.subtotal}}
+            {{venta.igv}}
+            {{venta.total}}
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <a href="{%url 'dashboard-venta' %}" class="btn btn-secondary"> Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i> </a>
+
+    &nbsp;
+
+    <a href="{%url 'update-venta' venta.id %}" class="btn btn-info"> Update record &nbsp; <i class="fa fa-pencil" aria-hidden="true"></i> </a>
+
+    &nbsp;
+     
+    <a href="{%url 'delete-venta' venta.id %}" class="btn btn-danger"> Delete &nbsp; <i class="fa fa-trash" aria-hidden="true"></i> </a>
+
+
+{% endblock %}

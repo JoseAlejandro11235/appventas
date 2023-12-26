@@ -1,0 +1,66 @@
+{% extends 'webapp/base.html' %}
+
+{% block content %}
+
+    <h5> Welcome to the dashboard-cargo page, {{user}}! 👋</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-cargo' %}">
+
+        Create a new record &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+    </a>
+
+    <hr>
+
+    <table class="table table table-hover table-bordered">
+        
+        <thead class="table-light">
+
+
+            <tr>
+
+                <th scope="col"> ID </th>
+                <th scope="col"> Denominación</th>
+                <th scope="col"> ID ÁREA</th>
+                <th scope="col"> View </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+
+        {% if cargos %}
+
+            {% for cargo in cargos %}
+            
+            <tr>
+
+
+                <td> {{cargo.id}} </td>
+
+                <td> {{cargo.denominacion}}</td>
+                <td> {{cargo.id_area}}</td>
+
+                
+                
+                <td> <a class="btn btn-success btn-sm" href="{% url 'cargo' cargo.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+
+
+
+            </tr>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}
