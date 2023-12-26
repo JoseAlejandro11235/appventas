@@ -21,10 +21,11 @@
 
                 <tr>
 
-                    <th scope="col"> ID </th>
-                    <th scope="col"> ID DIRECCIÓN </th>
+           
                     <th scope="col"> ID PERSONA </th>
-                    <th scope="col"> ID TIPO DIRECCIÓN </th>
+                    <th scope="col"> Razon Social </th>
+                    <th scope="col"> Nombre Comercial</th>
+                    <th scope="col"> Sitio Web </th>
                     
 
                     <th scope="col"> View </th>
@@ -42,7 +43,7 @@
                 
             <tr>
 
-                <td> {{personajuridica.id}} </td>
+
 
                 <td> {{personajuridica.id_persona}} </td>
 
@@ -53,7 +54,7 @@
 
                 
                 
-                <td> <a class="btn btn-success btn-sm" href="{% url 'personajuridica' personajuridica.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+                <td> <a class="btn btn-success btn-sm" href="{% url 'personajuridica' personajuridica.id_persona %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
 
 
 

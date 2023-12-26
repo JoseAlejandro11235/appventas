@@ -10,7 +10,9 @@
 
             <strong>
 
-                {{personajuridica.id}} 
+           
+                {{personajuridica.id_persona}}
+                
                 <br>
 
     
@@ -21,8 +23,6 @@
             <hr>
 
             
-            {{personajuridica.id_persona}}
-            <br>
             {{personajuridica.razon_social}}
             <br>
             {{personajuridica.nombre_comercial}}
@@ -41,11 +41,11 @@
 
     &nbsp;
 
-    <a href="{%url 'update-personajuridica' personajuridica.id %}" class="btn btn-info"> Update personajuridica &nbsp; <i class="fa fa-pencil" aria-hidden="true"></i> </a>
+    <a href="{%url 'update-personajuridica' personajuridica.id_persona %}" class="btn btn-info"> Update personajuridica &nbsp; <i class="fa fa-pencil" aria-hidden="true"></i> </a>
 
     &nbsp;
      
-    <a href="{%url 'delete-personajuridica' personajuridica.id %}" class="btn btn-danger"> Delete &nbsp; <i class="fa fa-trash" aria-hidden="true"></i> </a>
+    <a href="{%url 'delete-personajuridica' personajuridica.id_persona %}" class="btn btn-danger"> Delete &nbsp; <i class="fa fa-trash" aria-hidden="true"></i> </a>
 
 
 {% endblock %}

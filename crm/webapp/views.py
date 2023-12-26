@@ -1675,8 +1675,8 @@ def create_personajuridica(request):
 # - Update a PersonaJuridica
 @login_required(login_url='my-login')
 def update_personajuridica(request, pk):
-
-    personajuridica = PersonaJuridica.objects.get(id=pk)
+    persona = Persona.objects.get(documento=pk)
+    personajuridica = PersonaJuridica.objects.get(id_persona=persona)
 
     form = UpdatePersonaJuridicaForm(instance=personajuridica)
 
@@ -1696,8 +1696,8 @@ def update_personajuridica(request, pk):
 
 @login_required(login_url='my-login')
 def singular_personajuridica(request, pk):
-
-    personajuridica = PersonaJuridica.objects.get(id=pk)
+    persona = Persona.objects.get(documento=pk)
+    personajuridica = PersonaJuridica.objects.get(id_persona=persona)
 
     context = {'personajuridica': personajuridica}
 
@@ -1707,7 +1707,8 @@ def singular_personajuridica(request, pk):
 
 @login_required(login_url='my-login')
 def delete_personajuridica(request, pk):
-    personajuridica = PersonaJuridica.objects.get(id=pk)
+    persona = Persona.objects.get(documento=pk)
+    personajuridica = PersonaJuridica.objects.get(id_persona=persona)
     personajuridica.delete()
     messages.success(request, "Your PersonaJuridica was deleted!")
     return redirect("dashboard-personajuridica")
