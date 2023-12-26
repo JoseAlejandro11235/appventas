@@ -1245,7 +1245,7 @@ def create_ubigeo(request):
 @login_required(login_url='my-login')
 def update_ubigeo(request, pk):
 
-    ubigeo = Ubigeo.objects.get(id=pk)
+    ubigeo = Ubigeo.objects.get(ubigeo=pk)
 
     form = UpdateUbigeoForm(instance=ubigeo)
 
@@ -1266,7 +1266,7 @@ def update_ubigeo(request, pk):
 @login_required(login_url='my-login')
 def singular_ubigeo(request, pk):
 
-    ubigeo = Ubigeo.objects.get(id=pk)
+    ubigeo = Ubigeo.objects.get(ubigeo=pk)
 
     context = {'ubigeo': ubigeo}
 
@@ -1276,7 +1276,7 @@ def singular_ubigeo(request, pk):
 
 @login_required(login_url='my-login')
 def delete_ubigeo(request, pk):
-    ubigeo = Ubigeo.objects.get(id=pk)
+    ubigeo = Ubigeo.objects.get(ubigeo=pk)
     ubigeo.delete()
     messages.success(request, "Your Ubigeo was deleted!")
     return redirect("dashboard-ubigeo")

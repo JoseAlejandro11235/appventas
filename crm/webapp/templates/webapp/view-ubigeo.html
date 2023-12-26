@@ -10,7 +10,7 @@
 
             <strong>
 
-                {{ubigeo.id|upper}}
+                {{ubigeo.ubigeo|upper}}
                 <br>
     
                                
@@ -18,10 +18,11 @@
             </strong>
     
             <hr>
-
-            {{ubigeo.ubigeo}}
+            
             {{ubigeo.departamento}}
+            <br>
             {{ubigeo.provincia}}
+            <br>
             {{ubigeo.distrito}}
 
             <br>
@@ -36,11 +37,11 @@
 
     &nbsp;
 
-    <a href="{%url 'update-ubigeo' ubigeo.id %}" class="btn btn-info"> Update ubigeo &nbsp; <i class="fa fa-pencil" aria-hidden="true"></i> </a>
+    <a href="{%url 'update-ubigeo' ubigeo.ubigeo %}" class="btn btn-info"> Update ubigeo &nbsp; <i class="fa fa-pencil" aria-hidden="true"></i> </a>
 
     &nbsp;
      
-    <a href="{%url 'delete-ubigeo' ubigeo.id %}" class="btn btn-danger"> Delete &nbsp; <i class="fa fa-trash" aria-hidden="true"></i> </a>
+    <a href="{%url 'delete-ubigeo' ubigeo.ubigeo %}" class="btn btn-danger"> Delete &nbsp; <i class="fa fa-trash" aria-hidden="true"></i> </a>
 
 
 {% endblock %}

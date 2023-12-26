@@ -21,7 +21,6 @@
 
             <tr>
 
-                <th scope="col"> ID </th>
                 <th scope="col"> Ubigeo </th>
                 <th scope="col"> Departamento </th>
                 <th scope="col"> Provincia </th>
@@ -45,7 +44,6 @@
             <tr>
 
 
-                <td> {{ubigeo.id}} </td>
 
                 <td> {{ubigeo.ubigeo}}</td>
 
@@ -55,7 +53,7 @@
   
                 
                 
-                <td> <a class="btn btn-success btn-sm" href="{% url 'ubigeo' ubigeo.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+                <td> <a class="btn btn-success btn-sm" href="{% url 'ubigeo' ubigeo.ubigeo %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
 
 
 
