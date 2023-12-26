@@ -10,7 +10,7 @@
 
             <strong>
 
-                {{cliente.id}} 
+                {{cliente.id_persona}} 
                 <br>
 
     
@@ -22,7 +22,6 @@
 
             
 
-            {{cliente.id_persona}}
             <br>
             {{cliente.id_tipocliente}}
             
@@ -36,11 +35,11 @@
 
     &nbsp;
 
-    <a href="{%url 'update-cliente' cliente.id %}" class="btn btn-info"> Update cliente &nbsp; <i class="fa fa-pencil" aria-hidden="true"></i> </a>
+    <a href="{%url 'update-cliente' cliente.id_persona %}" class="btn btn-info"> Update cliente &nbsp; <i class="fa fa-pencil" aria-hidden="true"></i> </a>
 
     &nbsp;
      
-    <a href="{%url 'delete-cliente' cliente.id %}" class="btn btn-danger"> Delete &nbsp; <i class="fa fa-trash" aria-hidden="true"></i> </a>
+    <a href="{%url 'delete-cliente' cliente.id_persona %}" class="btn btn-danger"> Delete &nbsp; <i class="fa fa-trash" aria-hidden="true"></i> </a>
 
 
 {% endblock %}

@@ -6,7 +6,6 @@ from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate
 
 from django.contrib.auth.decorators import login_required
-from .models import Record, Area, Categoria, CategoriaPadre, Marca
 from .models import Record, Area, Categoria, CategoriaPadre, Marca, UnidadMedida, Producto, ProductoCategoria, ProductoPrecio, TipoDocumento, Persona, Operador, TipoTelefono, Telefono, PersonaTelefono, Ubigeo, TipoVia, TipoZona, Direccion, TipoDireccion, PersonaDireccion, PersonaJuridica, Sexo, Nacionalidad, PersonaNatural, Sucursal, Cargo, Rol, Empleado, TipoCliente, Cliente, Proveedor, Venta, DetalleVenta, TipoComprobante, SucursalSerie, ComprobanteVenta, Compra, DetalleCompra, Oficio, PersonaOficio
 from django.contrib import messages
 
@@ -2325,7 +2324,8 @@ def create_cliente(request):
 @login_required(login_url='my-login')
 def update_cliente(request, pk):
 
-    cliente = Cliente.objects.get(id=pk)
+    persona = Persona.objects.get(documento=pk)
+    cliente = Cliente.objects.get(id_persona=persona)
 
     form = UpdateClienteForm(instance=cliente)
 
@@ -2346,7 +2346,8 @@ def update_cliente(request, pk):
 @login_required(login_url='my-login')
 def singular_cliente(request, pk):
 
-    cliente = Cliente.objects.get(id=pk)
+    persona = Persona.objects.get(documento=pk)
+    cliente = Cliente.objects.get(id_persona=persona)
 
     context = {'cliente': cliente}
 
@@ -2356,7 +2357,8 @@ def singular_cliente(request, pk):
 
 @login_required(login_url='my-login')
 def delete_cliente(request, pk):
-    cliente = Cliente.objects.get(id=pk)
+    persona = Persona.objects.get(documento=pk)
+    cliente = Cliente.objects.get(id_persona=persona)
     cliente.delete()
     messages.success(request, "Your Cliente was deleted!")
     return redirect("dashboard-cliente")

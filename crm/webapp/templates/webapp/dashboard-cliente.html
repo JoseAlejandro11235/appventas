@@ -21,7 +21,7 @@
 
             <tr>
 
-                <th scope="col"> ID </th>
+        
                 <th scope="col"> ID PERSONA</th>
                 <th scope="col"> ID TIPO CLIENTE</th>
                 <th scope="col"> View </th>
@@ -40,14 +40,14 @@
             <tr>
 
 
-                <td> {{cliente.id}} </td>
+         
 
                 <td> {{cliente.id_persona}}</td>
                 <td> {{cliente.id_tipocliente}}</td>
 
                 
                 
-                <td> <a class="btn btn-success btn-sm" href="{% url 'cliente' cliente.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+                <td> <a class="btn btn-success btn-sm" href="{% url 'cliente' cliente.id_persona %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
 
 
 
