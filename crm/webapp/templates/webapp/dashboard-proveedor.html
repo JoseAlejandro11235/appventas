@@ -8,7 +8,7 @@
 
     <a class="btn btn-outline-primary btn-sm" href="{% url 'create-proveedor' %}">
 
-        Create a new producto precio &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        Create a new proveedor precio &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
 
     </a>
 
@@ -23,6 +23,8 @@
 
                 <th scope="col"> ID </th>
                 <th scope="col"> ID PERSONA </th> 
+                <th scope="col"> View </th> 
+
                
 
             </tr>
@@ -32,9 +34,9 @@
         <tbody>
 
 
-        {% if productosprecios %}
+        {% if proveedores %}
 
-            {% for proveedor in productosprecios %}
+            {% for proveedor in proveedores %}
             
             <tr>
 

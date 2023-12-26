@@ -268,7 +268,7 @@ class Cliente(models.Model):
         return str(self.id_persona)
 
 class Proveedor(models.Model):
-    id_persona = models.ForeignKey(Persona, on_delete = models.CASCADE)
+    id_persona = models.OneToOneField(Persona, on_delete = models.CASCADE)
     def __str__(self):
         return str(self.id_persona)
 
