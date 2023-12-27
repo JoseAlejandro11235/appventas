@@ -2878,7 +2878,7 @@ def dashboard_detallecompra(request):
 
     detallescompras = DetalleCompra.objects.all()
 
-    context = {'detalles_compra': detallescompras}
+    context = {'detallescompras': detallescompras}
 
     return render(request, 'webapp/dashboard-detallecompra.html', context=context)
 
