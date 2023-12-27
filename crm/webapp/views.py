@@ -2734,7 +2734,7 @@ def dashboard_comprobanteventa(request):
 
     comprobantesventas = ComprobanteVenta.objects.all()
 
-    context = {'comprobantes_venta': comprobantesventas}
+    context = {'comprobantesventas': comprobantesventas}
 
     return render(request, 'webapp/dashboard-comprobanteventa.html', context=context)
 
