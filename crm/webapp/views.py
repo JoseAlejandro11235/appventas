@@ -2516,9 +2516,9 @@ def delete_venta(request, pk):
 @login_required(login_url='my-login')
 def dashboard_detalleventa(request):
 
-    detalles_venta = DetalleVenta.objects.all()
+    detalles_ventas = DetalleVenta.objects.all()
 
-    context = {'detalles_venta': detalles_venta}
+    context = {'detallesventas': detalles_ventas}
 
     return render(request, 'webapp/dashboard-detalleventa.html', context=context)
 

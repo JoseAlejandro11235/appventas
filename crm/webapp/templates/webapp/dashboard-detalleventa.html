@@ -1,4 +1,4 @@
-{% extends 'webapp/base.html' %}
+    {% extends 'webapp/base.html' %}
 
 {% block content %}
 
@@ -22,7 +22,7 @@
                 <tr>
 
                     <th scope="col"> ID </th>
-                    <th scope="col"> ID COMPRA </th>
+                    <th scope="col"> ID VENTA </th>
                     <th scope="col"> ID PRODUCTO </th>
                     <th scope="col"> Cantidad </th>
                     <th scope="col"> Precio unitario </th>
@@ -49,6 +49,7 @@
 
                 <td> {{detalleventa.id_producto}}</td>
                 <td> {{detalleventa.id_productoprecio}}</td>
+                <td> {{detalleventa.cantidad}}</td>
                 <td> {{detalleventa.subtotal}}</td>
                 
 

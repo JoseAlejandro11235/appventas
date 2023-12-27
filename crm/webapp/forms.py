@@ -711,7 +711,7 @@ class CreateDetalleVentaForm(forms.ModelForm):
     class Meta:
 
         model = DetalleVenta
-        fields = ['id_venta','id_producto','id_productoprecio','subtotal']
+        fields = ['id_venta','id_producto','id_productoprecio','cantidad','subtotal']
 
 
 # - Update a Detalle Venta
@@ -720,7 +720,7 @@ class UpdateDetalleVentaForm(forms.ModelForm):
     class Meta: 
 
         model = DetalleVenta
-        fields = ['id_venta','id_producto','id_productoprecio','subtotal']
+        fields = ['id_venta','id_producto','id_productoprecio','cantidad','subtotal']
 
 
 
