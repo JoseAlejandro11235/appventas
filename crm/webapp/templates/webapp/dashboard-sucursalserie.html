@@ -21,9 +21,9 @@
 
                 <tr>
 
-                    <th scope="col"> ID </th>
-                    <th scope="col"> ID DIRECCION  </th>
-                    <th scope="col"> Descripcion </th>
+                    <th scope="col"> Serie </th>
+                    <th scope="col"> ID SUCURSAL  </th>
+                    <th scope="col"> ID TIPOCOMPROBANTE </th>
                     
 
                     <th scope="col"> View </th>
@@ -41,7 +41,7 @@
                 
             <tr>
 
-                <td> {{sucursalserie.id}} </td>
+  
 
                 <td> {{sucursalserie.serie}} </td>
                 <td> {{sucursalserie.id_sucursal}} </td>
@@ -51,7 +51,7 @@
 
                 
                 
-                <td> <a class="btn btn-success btn-sm" href="{% url 'sucursalserie' sucursalserie.id %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
+                <td> <a class="btn btn-success btn-sm" href="{% url 'sucursalserie' sucursalserie.serie %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a></td>
 
 
 

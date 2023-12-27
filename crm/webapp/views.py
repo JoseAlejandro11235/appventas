@@ -2690,7 +2690,7 @@ def create_sucursalserie(request):
 @login_required(login_url='my-login')
 def update_sucursalserie(request, pk):
 
-    sucursalserie = SucursalSerie.objects.get(id=pk)
+    sucursalserie = SucursalSerie.objects.get(serie=pk)
 
     form = UpdateSucursalSerieForm(instance=sucursalserie)
 
@@ -2711,7 +2711,7 @@ def update_sucursalserie(request, pk):
 @login_required(login_url='my-login')
 def singular_sucursalserie(request, pk):
 
-    sucursalserie = SucursalSerie.objects.get(id=pk)
+    sucursalserie = SucursalSerie.objects.get(serie=pk)
 
     context = {'sucursalserie': sucursalserie}
 
@@ -2721,7 +2721,7 @@ def singular_sucursalserie(request, pk):
 
 @login_required(login_url='my-login')
 def delete_sucursalserie(request, pk):
-    sucursalserie = SucursalSerie.objects.get(id=pk)
+    sucursalserie = SucursalSerie.objects.get(serie=pk)
     sucursalserie.delete()
     messages.success(request, "Your SucursalSerie was deleted!")
     return redirect("dashboard-sucursalserie")
@@ -3073,7 +3073,7 @@ def singular_personaoficio(request, pk):
 
     persona_oficio = PersonaOficio.objects.get(id=pk)
 
-    context = {'persona_oficio': persona_oficio}
+    context = {'personaoficio': persona_oficio}
 
     return render(request, 'webapp/view-personaoficio.html', context=context)
 

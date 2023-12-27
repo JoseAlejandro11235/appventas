@@ -355,9 +355,9 @@ urlpatterns = [
 
     path('dashboard-sucursalserie', views.dashboard_sucursalserie, name="dashboard-sucursalserie"),
     path('create-sucursalserie', views.create_sucursalserie, name="create-sucursalserie"),
-    path('update-sucursalserie/<int:pk>', views.update_sucursalserie, name='update-sucursalserie'),
-    path('sucursalserie/<int:pk>', views.singular_sucursalserie, name="sucursalserie"),
-    path('delete-sucursalserie/<int:pk>', views.delete_sucursalserie, name="delete-sucursalserie"),
+    path('update-sucursalserie/<str:pk>', views.update_sucursalserie, name='update-sucursalserie'),
+    path('sucursalserie/<str:pk>', views.singular_sucursalserie, name="sucursalserie"),
+    path('delete-sucursalserie/<str:pk>', views.delete_sucursalserie, name="delete-sucursalserie"),
 
 
     # CRUD COMPROBANTE VENTA

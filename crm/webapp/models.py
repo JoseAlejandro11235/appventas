@@ -177,7 +177,7 @@ class Direccion(models.Model):
     lote = models.CharField(max_length=2)
     numero = models.CharField(max_length=6)
     def __str__(self):
-        return self.nombre_zona + ' ' + self.nombre_via + ' ' +'manzana' + ' '+self.manzana +  'lote' + ' ' + self.lote + 'numero' + self.numero
+        return self.nombre_zona + ' ' + self.nombre_via + ' manzana ' +self.manzana +  '  lote ' + self.lote + ' numero ' + self.numero
 
 class TipoDireccion(models.Model):
     denominacion = models.CharField(max_length=100)

@@ -10,7 +10,7 @@
 
             <strong>
 
-                {{sucursalserieserie.id}} 
+                {{sucursalserie.serie}}
                 <br>
 
     
@@ -21,8 +21,7 @@
             <hr>
 
             
-            {{sucursalserie.serie}}
-            <br>
+
             {{sucursalserie.id_sucursal}}
             <br>
             {{sucursalserie.id_tipocomprobante}}
@@ -38,11 +37,11 @@
 
     &nbsp;
 
-    <a href="{%url 'update-sucursalserie' sucursalserie.id %}" class="btn btn-info"> Update sucursalserie &nbsp; <i class="fa fa-pencil" aria-hidden="true"></i> </a>
+    <a href="{%url 'update-sucursalserie' sucursalserie.serie %}" class="btn btn-info"> Update sucursalserie &nbsp; <i class="fa fa-pencil" aria-hidden="true"></i> </a>
 
     &nbsp;
      
-    <a href="{%url 'delete-sucursalserie' sucursalserie.id %}" class="btn btn-danger"> Delete &nbsp; <i class="fa fa-trash" aria-hidden="true"></i> </a>
+    <a href="{%url 'delete-sucursalserie' sucursalserie.serie %}" class="btn btn-danger"> Delete &nbsp; <i class="fa fa-trash" aria-hidden="true"></i> </a>
 
 
 {% endblock %}
